@@ -1,10 +1,6 @@
-import os
-
-dirct = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 CONFIG = {
     'mode': 'wsgi',
-    'working_dir': dirct,
+    'working_dir': '/home/box/web',
     'args': (
         '--bind=0.0.0.0:8080',
         '--daemon',
