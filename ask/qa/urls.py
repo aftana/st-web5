@@ -1,13 +1,13 @@
-from .views import test
-
 from django.conf.urls import url
 
+from django.contrib import admin
+from qa.views import *
+admin.autodiscover()
+
 urlpatterns = [
-   url(r'^$', test),
-   url(r'^login/.*', test, name='login'),
-   url(r'^signup/.*', test, name='signup'),
-   url(r'^question/(?P<id>[0-9]+)/', test, name='question'),
-   url(r'^ask/.*', test, name='ask'),
-   url(r'^popular/.*', test, name='popular'),
-   url(r'^new/.*', test, name='new'),
-]
+               url(r'^question/(?P<qa_id>\d+)/', question, name='question'),
+               url(r'^popular/', popular, name='popular'),
+               url(r'^ask/', ask, name='ask'),
+               url(r'^$', main, name='main'),
+               url(r'^login/', my_login, name='login'),
+               url(r'^signup/', signup, name='signup'), ]

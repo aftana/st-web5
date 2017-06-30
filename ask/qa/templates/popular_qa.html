@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Popular questionss</title>
+</head>
+<body>
+        <h1>List of questions:</h1>
+            {% for question in popular_qas %}
+              <p>{{question.id}}: {{ question.title }}
+                <a href="{{ paginator.baseurl }}/question/{{ question.id }}/">
+                  {{ paginator.baseurl }}/question/{{ question.id }}/
+                </a>
+              </p>
+            {% endfor %}
+
+            <nav><ul>
+            {% for page_number in paginator.page_range %}
+              <li>
+                <a href="{{ paginator.baseurl }}?page={{ page_number }}">
+                  {{ page_number }}
+                </a>
+              </li>
+            {% endfor %}
+            </ul></nav>
+</body>
+</html>
